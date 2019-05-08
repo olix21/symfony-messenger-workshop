@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Create your bet</h1>
+    <form method="post">
+        <p>
+            <label>Username</label>
+            <input type="text" name="username">
+        </p>
+        <p>
+            <label>Game</label>
+            <input type="text" name="game">
+        </p>
+        <p>
+            <label>Left Score</label>
+            <input type="text" name="leftScore">
+        </p>
+        <p>
+            <label>Right Score</label>
+            <input type="text" name="rightScore">
+        </p>
+
+        <p>
+            <button type="submit">Register Bet</button>
+        </p>
+    </form>
+
+    <table>
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>username</th>
+            <th>game</th>
+            <th>left score</th>
+            <th>right score</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for bet in bets %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ bet.username }}</td>
+                <td>{{ bet.game }}</td>
+                <td>{{ bet.leftScore }}</td>
+                <td>{{ bet.rightScore }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <h1>Report the game result</h1>
+
+    <form method="post" action="report">
+        <p>
+            <label>Game</label>
+            <input type="text" name="game">
+        </p>
+        <p>
+            <label>Left Score</label>
+            <input type="text" name="leftScore">
+        </p>
+        <p>
+            <label>Right Score</label>
+            <input type="text" name="rightScore">
+        </p>
+
+        <p>
+            <button type="submit">Register Game result</button>
+        </p>
+    </form>
+
+{% endblock body %}
